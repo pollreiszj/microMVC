@@ -11,21 +11,21 @@ class autoloader {
         return self::$loader;
     }
 
-    public function __construct()
+    private function __construct()
     {
         spl_autoload_register(array($this,'system'));
-        spl_autoload_register(array($this,'model'));
         spl_autoload_register(array($this,'controller'));
+        spl_autoload_register(array($this,'model'));
     }
 
-    public function system($class)
+    private function system($class)
     {
         set_include_path(path('sys'));
         spl_autoload_extensions('.php');
         spl_autoload($class);
     }
 
-    public function controller($class)
+    private function controller($class)
     {
         $class = preg_replace('/_controller$/ui','',$class);
         
@@ -34,7 +34,7 @@ class autoloader {
         spl_autoload($class);
     }
 
-    public function model($class)
+    private function model($class)
     {
         $class = preg_replace('/_model$/ui','',$class);
         
