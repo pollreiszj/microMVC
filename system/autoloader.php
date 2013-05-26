@@ -27,7 +27,7 @@ class autoloader {
 
     private function controller($class)
     {
-        $class = preg_replace('/_controller$/ui','',$class);
+        $class = preg_replace('/Controller$/ui','',$class);
         
         set_include_path(path('app').'/controller/');
         spl_autoload_extensions('.controller.php');
@@ -36,7 +36,7 @@ class autoloader {
 
     private function model($class)
     {
-        $class = preg_replace('/_model$/ui','',$class);
+        $class = preg_replace('/Model$/ui','',$class);
         
         set_include_path(path('app').'/model/');
         spl_autoload_extensions('.model.php');

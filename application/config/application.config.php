@@ -1,14 +1,16 @@
 <?php
 //Controller configurations
-Config::set('default.controller', 'index');
-Config::set('default.action', 'index');
-Config::set('error.controller', 'error404');
+Config::setArray([
+	'default.controller' => '',
+	'default.action'	 => 'index',
+	'error.controller'   => 'error'
+]);
 
 /*
- * With this disabled the route would be in querystring style
+ * Router::QUERYSTRING_PARSER - parse the route in querystring style
  *  controller/action?param1=val1&param2=val2
  *
- * With thie enabled the route would be in directory style
+ * Router::DIRECTORY_PARSER - parse the route in directory style
  *  controller/action/val21/val2
  * 
  * .htaccess
@@ -18,7 +20,7 @@ Config::set('error.controller', 'error404');
         RewriteCond %{REQUEST_FILENAME} !-d
         RewriteCond %{REQUEST_FILENAME} !-f
         RewriteRule ^(.*)$ /index.php [QSA,L]
-        RedirectMatch 403 /\.svn
+        RedirectMatch 403 /\.git
      </IfModule>
  */
-Config::set('urls.seofriendly', true);
+Config::set('route.parser', Router::QUERYSTRING_PARSER);

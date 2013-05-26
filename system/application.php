@@ -1,11 +1,30 @@
 <?php
 class Application {
+
+	private $database;
 	
-	function __construct() {
+	public function __construct() {
 	}
 
-	function start() {
-		echo "application started - ";
-		echo Config::get("default.controller");
+	public function getDatabase() {
+		return $database;
+	}
+
+	public function start() {
+		$router = new Router();
+
+		if (Config::has('database.name')) {
+			try {
+				$database = new DbConnection();
+			}
+			catch (PDOException $ex) {
+				echo "Error connecting to database"; //set error controller
+				$router->setController(Config::get("error.controller"));
+			}
+		}
+						
+		Loader::execute($router->getController(),
+						$router->getAction(),
+						$router->getArgs());
 	}
 }
