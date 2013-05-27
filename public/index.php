@@ -1,5 +1,19 @@
 <?php
 error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+//TODO: Move this somewhere else, separate php file?
+function defaultExceptionHandler($exception) {
+	echo "<pre>" .
+	     $exception->getMessage() .
+	     "<br/><br/>" .
+	     $exception->getFile().' ('.$exception->getLine().')' .
+	     "<br/>" .
+	     $exception->getTraceAsString() .
+	     "</pre>";
+}
+set_exception_handler("defaultExceptionHandler");
+
 define('EXT', '.php');
 
 // set the paths
