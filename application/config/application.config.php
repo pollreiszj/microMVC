@@ -1,7 +1,7 @@
 <?php
 //Controller configurations
 Config::setArray([
-	'default.controller' => 'default',
+	'default.controller' => 'home',
 	'default.action'	 => 'index',
 	'error.controller'   => 'error'
 ]);
