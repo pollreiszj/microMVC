@@ -41,4 +41,9 @@ class View {
 
 		$view->render();		
 	}
+
+	public static function AsJSON($data, $forceObject = false) {
+		header('Content-type: application/json');		
+		echo json_encode($data, ($forceObject ? JSON_FORCE_OBJECT : 0));		
+	}
 }

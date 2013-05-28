@@ -11,7 +11,7 @@ Config::setArray([
  *  controller/action?param1=val1&param2=val2
  *
  * Router::DIRECTORY_PARSER - parse the route in directory style
- *  controller/action/val21/val2
+ *  controller/action/val1/val2
  * 
  * .htaccess
      <IfModule mod_rewrite.c>

@@ -1,24 +1,19 @@
 <?php
 class userModel extends DbModel {
 
-	public function getUser() {
-		$user = [
-			'fullname' => 'jeff pollreisz', 
-			'username' => 'pollreiszj',
-			'email'    => 'jeffpollreisz@gmail.com',
-			'birthday' => '5/3/1985'
-		];
+	public function getUser($id) {
+		$stmt = $this->db->prepare("SELECT * FROM user WHERE id=:id");
+		$stmt->bindParam(':id', $id);
+		$stmt->execute();
+		$obj = $stmt->fetch(PDO::FETCH_OBJ);
 
-		return (object)$user;
+		return $obj;
 	}
 
 	public function getUsers() {
-		$users = [
-			['fullname' => 'jeff pollreisz', 'username' => 'pollreiszj'],
-			['fullname' => 'john doe', 'username' => 'doe.john'],
-			['fullname' => 'jane doe', 'username' => 'doe.jane']
-		];
-
-		return $users;
+		$stmt = $this->db->query("SELECT id, name, username FROM user");		
+		$arr = $stmt->fetchAll(PDO::FETCH_ASSOC);		
+	
+		return $arr;
 	}
 }

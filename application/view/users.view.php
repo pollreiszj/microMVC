@@ -12,7 +12,9 @@
 		foreach ($users as $value) {
 		?>
 			<tr>
-				<td><?=$value['fullname']?></td>
+				<td>
+					<a href="/home/userdetail?id=<?=$value['id']?>"><?=$value['name']?></a>
+				</td>
 				<td><?=$value['username']?></td>
 			</tr>
 		<?php

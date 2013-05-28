@@ -9,7 +9,7 @@ class homeController extends Controller {
 		View::make('home', $data);
 	}
 
-	public function userlist() {
+	public function users() {
 		$model = new userModel();		
 		$data = [
 			'title' => 'User List',
@@ -18,11 +18,16 @@ class homeController extends Controller {
 		View::make('users', $data);
 	}
 
-	public function user() {
+	public function usersjson() {
+		$model = new userModel();				
+		View::AsJSON($model->getUsers());
+	}
+
+	public function userdetail($id) {
 		$model = new userModel();	
 		$data = [
 			'title' => 'User Detail',
-			'user' => $model->getUser()
+			'user' => $model->getUser($id)
 		];											
 		View::make('userdetail', $data);					
 	}

@@ -6,9 +6,10 @@
 		</style>
 	</head>
 	<body>
-		<span>Name:</span> <?=$user->fullname?><br/>
+		<span>Name:</span> <?=$user->name?><br/>
 		<span>Username:</span> <?=$user->username?><br/>
 		<span>Email:</span> <?=$user->email?><br/>
-		<span>Birthday:</span> <?=$user->birthday?>
+		<span>Birthday:</span> <?=$user->birthday?><br/>
+		<a href="/home/users">&lt;&lt;Back</a>
 	</body>
 </html>
