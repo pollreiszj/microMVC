@@ -1,1 +1,1 @@
-storage/databases will go here
+Databases and other storage files will go here

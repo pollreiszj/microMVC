@@ -13,7 +13,7 @@ class DbModel extends Model {
 			try {
 				$this->db = new DbConnection();
 			}
-			catch (PDOException $ex) {
+			catch (PDOException $ex) {				
 				throw new Exception("Error connecting to database");
 			}
 		}

@@ -34,7 +34,7 @@ class DbConnection extends PDO {
 	        	        Config::get('database.name'));
 	}
 
-	private function sqliteDSN($database) {
+	private function sqliteDSN($database) {		
 		return sprintf("sqlite:%s%s",
 						path('storage'),
 						$database);
